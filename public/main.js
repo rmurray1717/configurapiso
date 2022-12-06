@@ -60,6 +60,19 @@ async function setupModelSelection(viewer, selectedUrn) {
     }
 }
 
+function setMaterial(viewer, dbids, material) {
+    const model = viewer.model;
+    model.unconsolidate(); // If the model is consolidated, material changes won't have any effect
+    const tree = model.getInstanceTree();
+    const frags = model.getFragmentList();
+    const dbids = viewer.getSelection();
+    for (const dbid of dbids) {
+      tree.enumNodeFragments(dbid, (fragid) => {
+        frags.setMaterial(fragid, material);
+      });
+    }
+  }
+
 /**
  * Initializes model upload UI.
  * @async
