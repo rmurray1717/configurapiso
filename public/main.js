@@ -7,7 +7,7 @@ Autodesk.Viewing.Initializer({ getAccessToken }, async function () {
     const viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('preview'), config);
     viewer.start();
     viewer.setTheme('light-theme');
-    const urn = window.location.hash ? window.location.hash.substr(1) : null;
+    const urn = window.location.hash ? window.location.hash.substring(1) : null;
     setupModelSelection(viewer, urn);
     setupModelUpload(viewer);
 });
