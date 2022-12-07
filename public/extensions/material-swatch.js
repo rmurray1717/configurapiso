@@ -60,6 +60,9 @@ class MaterialSwatchExtension extends Autodesk.Viewing.Extension {
         targetModel.unconsolidate();
     }
     
+    
+    ///EMPIEZA MODIFICACION RUBEN MURRAY
+    
   async setMaterial(viewer, dbids, material) {
   const targetModel = viewer.model;
   targetModel.unconsolidate(); // If the model is consolidated, material changes won't have any effect
@@ -72,6 +75,8 @@ class MaterialSwatchExtension extends Autodesk.Viewing.Extension {
     });
   }
 }
+    
+      ///TERMINA MODIFICACION RUBEN MURRAY
 
     async _loadSwatchModel(urn) {
         const viewer = this.viewer;
