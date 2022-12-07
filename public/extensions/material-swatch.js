@@ -61,22 +61,7 @@ class MaterialSwatchExtension extends Autodesk.Viewing.Extension {
     }
     
     
-    ///EMPIEZA MODIFICACION RUBEN MURRAY
-    
-  async setMaterial(viewer, dbids, material) {
-  const targetModel = viewer.model;
-  targetModel.unconsolidate(); // If the model is consolidated, material changes won't have any effect
-  const tree = targetModel.getInstanceTree();
-  const frags = targetModel.getFragmentList();
-  const dbids = viewer.getSelection();
-  for (const dbid of dbids) {
-    tree.enumNodeFragments(dbid, (fragid) => {
-      frags.setMaterial(fragid, material);
-    });
-  }
-}
-    
-      ///TERMINA MODIFICACION RUBEN MURRAY
+
 
     async _loadSwatchModel(urn) {
         const viewer = this.viewer;
